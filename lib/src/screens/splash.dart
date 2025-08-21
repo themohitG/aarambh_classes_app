@@ -6,7 +6,10 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(milliseconds: 1200), onNext);
+    // Corrected: Wrap onNext in an anonymous function to ensure it's called.
+    Future.delayed(const Duration(milliseconds: 1200), () {
+      onNext();
+    });
     return Scaffold(
       body: Center(
         child: Column(
