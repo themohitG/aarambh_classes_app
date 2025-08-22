@@ -8,7 +8,8 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   // Toggle to true after wiring Firebase and adding google-services files.
   const bool USE_FIREBASE = false;
-  runApp(AarambhApp(useFirebase: USE_FIREBASE));
+
+  runApp(const AarambhApp(useFirebase: USE_FIREBASE));
 }
 
 class AarambhApp extends StatelessWidget {
@@ -17,15 +18,16 @@ class AarambhApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => AppState()..bootstrap()),
-      ],
-      child: MaterialApp.router(
+    return ChangeNotifierProvider(
+      create: (_) => AppState(),
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'AARAMBH CLASSES',
-        theme: AppTheme.light(),
-        routerConfig: buildRouter(),
+        title: 'Aarambh Classes',
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
+        themeMode: ThemeMode.system,
+        initialRoute: AppRouter.initialRoute,
+        onGenerateRoute: AppRouter.generateRoute,
       ),
     );
   }
