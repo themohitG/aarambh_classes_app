@@ -1,6 +1,7 @@
 name: aarambh_classes
-description: Mobile app for AARAMBH CLASSES (Student/Teacher/Admin) with mock data and optional Firebase integration.
+description: Aarambh Classes App (Student/Teacher/Admin) with mock data and optional Firebase integration.
 publish_to: "none"
+
 version: 1.0.0+1
 
 environment:
@@ -22,7 +23,20 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.4.1
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/logo.png"
+
+flutter_native_splash:
+  color: "#ffffff"           # Splash screen background color (white)
+  image: assets/logo.png     # Logo to display on splash
+  android: true
+  ios: true
+  web: false
 
 flutter:
   uses-material-design: true
